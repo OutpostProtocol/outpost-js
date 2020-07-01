@@ -2,19 +2,21 @@ import * as didJWT from 'did-jwt'
 import * as Ajv from 'ajv'
 
 import * as constants from './constants'
-import { tagsSchema } from './schemas'
+import { tagsSchema, createSchema } from './schemas'
 
 const { OPS } = constants
 const ajv = new Ajv({})
 
 interface UploadData {
   jwt: string
-  tags: {
-    'App-Name': string
-    'App-Version': string
-    Type: string
-    Did: string
-  }
+  tags: txTags
+}
+
+interface txTags {
+  'App-Name': string
+  'App-Version': string
+  Type: string
+  Did: string
 }
 
 interface OpData {
@@ -24,30 +26,30 @@ interface OpData {
   iss: string // issuer
 }
 
-export function validateTxData (tx: UploadData): boolean {
-  checkTags(tx)
+export function isValidTx (tx: UploadData): boolean {
+  if (!hasValidTags(tx)) return false
 
-  const message: OpData = getJWTPayload(tx.jwt)
+  const message = getJWTPayload(tx.jwt)
 
   switch (message.op) {
     case OPS.CREATE_COM:
-      validateCreate(message.data)
+      return validateCreate(message)
       break
     default:
-      throw new Error('Arweave Proxy Server Error: Op in request is invalid')
+      return false
   }
-
-  return true
 }
 
-function checkTags (tx: UploadData): void {
-  const valid = ajv.validate(tagsSchema, tx.tags)
-
-  if (!valid) throw new Error('Arweave Proxy Server Error: tags in transaction are invalid.')
+function hasValidTags (tx: UploadData): boolean {
+  return ajv.validate(tagsSchema, tx.tags)
 }
 
-function validateCreate (createData: object): void {}
+function validateCreate (createData: OpData): boolean {
+  return ajv.validate(createSchema, createData)
+}
 
-const getJWTPayload = (jwt: string): OpData => didJWT.decodeJWT(jwt).payload as OpData
+function getJWTPayload (jwt: string): OpData {
+  return didJWT.decodeJWT(jwt).payload as OpData
+}
 
 export { constants }
