@@ -26,10 +26,20 @@ interface OpData {
   iss: string // issuer
 }
 
-export function isValidTx (tx: UploadData): boolean {
-  if (!hasValidTags(tx)) return false
+export function isValidUpload (upload: UploadData): boolean {
+  if (!hasValidTags(upload)) return false
 
-  const message = getJWTPayload(tx.jwt)
+  return isValidOp(upload.jwt)
+}
+
+export function isValidOp (jwt: string): boolean {
+  let message
+
+  try {
+    message = getJWTPayload(jwt)
+  } catch (e) {
+    return false
+  }
 
   switch (message.op) {
     case OPS.CREATE_COM:
@@ -48,7 +58,7 @@ function validateCreate (createData: OpData): boolean {
   return ajv.validate(createSchema, createData)
 }
 
-function getJWTPayload (jwt: string): OpData {
+export function getJWTPayload (jwt: string): OpData {
   return didJWT.decodeJWT(jwt).payload as OpData
 }
 

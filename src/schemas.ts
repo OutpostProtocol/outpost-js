@@ -1,3 +1,5 @@
+import { SRC_TYPE, COM_TYPE } from './constants'
+
 export const tagsSchema = {
   type: 'object',
   required: ['App-Name', 'App-Version', 'Did', 'Type'],
@@ -13,7 +15,7 @@ export const tagsSchema = {
     },
     Type: {
       type: 'string',
-      enum: ['community-Src', 'community']
+      enum: [SRC_TYPE, COM_TYPE]
     }
   }
 }
