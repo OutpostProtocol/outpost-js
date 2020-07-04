@@ -1,7 +1,7 @@
 import * as didJWT from 'did-jwt'
 import * as Ajv from 'ajv'
-
 import * as constants from './constants'
+import * as functionTypes from './functionTypes'
 import { tagsSchema, createSchema } from './schemas'
 
 const { OPS } = constants
@@ -62,4 +62,4 @@ export function getJWTPayload (jwt: string): OpData {
   return didJWT.decodeJWT(jwt).payload as OpData
 }
 
-export { constants }
+export { constants, functionTypes }
