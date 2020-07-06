@@ -1,7 +1,6 @@
 import * as didJWT from 'did-jwt'
 import * as Ajv from 'ajv'
 import * as constants from './constants'
-import * as functionTypes from './functionTypes'
 import { tagsSchema, createSchema } from './schemas'
 
 const { OPS } = constants
@@ -51,15 +50,15 @@ export function isValidOp (jwt: string): boolean {
 }
 
 function hasValidTags (tx: UploadData): boolean {
-  return ajv.validate(tagsSchema, tx.tags)
+  return ajv.validate(tagsSchema, tx.tags) as boolean
 }
 
 function validateCreate (createData: OpData): boolean {
-  return ajv.validate(createSchema, createData)
+  return ajv.validate(createSchema, createData) as boolean
 }
 
 export function getJWTPayload (jwt: string): OpData {
   return didJWT.decodeJWT(jwt).payload as OpData
 }
 
-export { constants, functionTypes }
+export { constants }

@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "allowJs": true,
+        "target": "ES2018",
+        "module": "commonjs",
+        "sourceMap": true
+    },
+    "include": [
+        "./src/functionTypes.ts"
+    ]
+}

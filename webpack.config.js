@@ -1,12 +1,12 @@
 const path = require('path')
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './src/index.ts',
   output: {
-    filename: 'main.js',
+    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
-    library: 'rain',
+    library: 'clearrain',
     libraryTarget: 'umd',
     globalObject: 'this'
   },

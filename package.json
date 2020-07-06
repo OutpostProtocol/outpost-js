@@ -1,11 +1,21 @@
 {
-  "name": "clear-rain",
-  "version": "1.0.2",
+  "name": "clearrain",
+  "version": "1.1.4",
   "description": "Javascript library for rain communities",
-  "main": "dist/main.js",
+  "main": "index.js",
+  "directories": {
+    "lib": "dist"
+  },
+  "files": [
+    "index.js",
+    "functionTypes.js"
+  ],
   "scripts": {
     "start": "webpack --watch",
-    "lint": "tslint 'src/**/*.ts'"
+    "build": "tsc -project tsconfig.functionTypes.json && webpack",
+    "package": "cp-cli dist/index.js index.js && cp-cli dist/functionTypes.js functionTypes.js",
+    "lint": "tslint 'src/**/*.ts'",
+    "clean": "rimraf dist && rm-cli index.js functionTypes.js"
   },
   "dependencies": {
     "ajv": "^6.12.2",
@@ -15,7 +25,9 @@
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "cp-cli": "^2.0.0",
     "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
     "ts-loader": "^7.0.5",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
