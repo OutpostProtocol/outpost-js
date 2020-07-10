@@ -1,4 +1,4 @@
-import * as didJWT from 'did-jwt'
+import { decodeJWT } from 'did-jwt'
 import * as Ajv from 'ajv'
 import * as constants from './constants'
 import { tagsSchema, createSchema } from './schemas'
@@ -58,7 +58,7 @@ function validateCreate (createData: OpData): boolean {
 }
 
 export function getJWTPayload (jwt: string): OpData {
-  return didJWT.decodeJWT(jwt).payload as OpData
+  return decodeJWT(jwt).payload as OpData
 }
 
 export { constants }
