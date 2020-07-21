@@ -1,7 +1,7 @@
 {
-  "name": "clearrain",
-  "version": "1.2.2",
-  "description": "Javascript library for rain communities",
+  "name": "outpost-protocol",
+  "version": "1.0.0",
+  "description": "Javascript library for outpost communities",
   "main": "index.js",
   "directories": {
     "lib": "dist"
