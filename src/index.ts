@@ -8,10 +8,10 @@ const ajv = new Ajv({})
 
 interface UploadData {
   jwt: string
-  tags: txTags
+  tags: TxTags
 }
 
-interface txTags {
+interface TxTags {
   'App-Name': string
   'App-Version': string
   Type: string
