@@ -1,6 +1,6 @@
 {
   "name": "outpost-protocol",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Javascript library for outpost communities",
   "main": "index.js",
   "directories": {
@@ -29,6 +29,7 @@
     "cp-cli": "^2.0.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "rm-cli": "^1.4.2",
     "ts-loader": "^7.0.5",
     "tslint": "^6.1.2",
     "tslint-config-prettier": "^1.18.0",
