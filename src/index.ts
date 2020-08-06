@@ -7,3 +7,22 @@ export const ROLES = {
   MODERATOR: 'MODERATOR',
   MEMBER: 'MEMBER'
 }
+
+export function createInitState (did, name, isOpen) {
+  const initState = {
+    name,
+    isOpen,
+    owner: did,
+    admins: {},
+    moderators: {},
+    members: {},
+    children: {},
+    timestamps: {}
+  }
+
+  initState.admins[did] = true
+  initState.moderators[did] = true
+  initState.members[did] = true
+
+  return initState
+}
