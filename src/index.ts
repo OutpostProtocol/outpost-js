@@ -1,5 +1,5 @@
 export const CONTRACT_SRC = 'eF0e3F3yV-r6jzNw2aH7ND4WgR7KrOU1uoUZAjVY1HI'
-export const CONTRACT_ID = 'iOJmwmkP-vQxEGKe0F4fWnoU2vBP4tfoilNZzYEPLQY'
+export const DEV_CONTRACT_ID = 'f31IwJvoun_1BgSW-0j_xBNMCKS6T2GJkmTD20Q7k-g'
 
 export const ROLES = {
   OWNER: 'OWNER',

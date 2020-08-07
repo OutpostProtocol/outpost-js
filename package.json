@@ -1,6 +1,6 @@
 {
   "name": "outpost-protocol",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Javascript library for outpost communities",
   "main": "index.js",
   "directories": {
