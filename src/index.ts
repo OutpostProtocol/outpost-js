@@ -1,5 +1,6 @@
-export const CONTRACT_SRC = 'eF0e3F3yV-r6jzNw2aH7ND4WgR7KrOU1uoUZAjVY1HI'
-export const DEV_CONTRACT_ID = 'f31IwJvoun_1BgSW-0j_xBNMCKS6T2GJkmTD20Q7k-g'
+export const CONTRACT_SRC = 'a3vdjXrmSyF6zrSOO-ddeXuGuWpJ-3SCfOWkh9ms4cY'
+export const PROD_CONTRACT_ID = 'BXCEBKTv-Fvan0m82aEi7njdnRsFDluFkfN8vrWG5FI'
+export const DEV_CONTRACT_ID = 'tynArDso6PKe7h1uRfu8jS7XHhTYRJQhqVRExAi0bqU'
 
 export const ROLES = {
   OWNER: 'OWNER',
