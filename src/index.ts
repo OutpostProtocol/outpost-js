@@ -12,6 +12,7 @@ export function createInitState (did, name, isOpen) {
   const initState = {
     name,
     isOpen,
+    guidelines: null,
     owner: did,
     admins: {},
     moderators: {},
